@@ -1,4 +1,4 @@
-name: pytester-cov
+name: pytester-cover
 author: programmingwithalex
 description: >-
   Recursively check pytest coverage and fail if file and/or total coverage below threshold.
@@ -33,7 +33,7 @@ inputs:
     default: 0
 outputs:
   output-table: # id of output
-    description: 'pytest-cov markdown output table'
+    description: 'pytest-cover markdown output table'
   cov-threshold-single-fail:
     description: 'boolean if any single file coverage less than cov-threshold-single'
   cov-threshold-total-fail:
