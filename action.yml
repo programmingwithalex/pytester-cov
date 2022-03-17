@@ -1,4 +1,4 @@
-name: pytester-cov
+name: pytester-cover
 author: programmingwithalex
 description: >-
   Recursively check pytest coverage and fail if file and/or total coverage below threshold.
