@@ -1,0 +1,50 @@
+name: pytester-cov
+author: programmingwithalex
+description: >-
+  Recursively check pytest coverage and fail if file and/or total coverage below threshold.
+branding:
+  color: 'gray-dark'
+  icon: 'check-circle'
+
+inputs:
+  pytest-root-dir:
+    description: 'root directory to recursively search for .py files'
+    required: false
+    default: '.'
+  pytest-tests-dir:
+    description: 'directory with pytest tests. if left empty will identify test(s) dir by default'
+    required: false
+    default: ''
+  cov-omit-list:
+    description: 'list of directories and/or files to ignore'
+    required: false
+    default: ''
+  requirements-file:
+    description: 'requirements filepath for project'
+    required: false
+    default: 'requirements.txt'
+  cov-threshold-single:
+    description: 'fail if any single file coverage is less than threshold'
+    required: false
+    default: 0
+  cov-threshold-total:
+    description: 'fail if the total coverage is less than threshold'
+    required: false
+    default: 0
+outputs:
+  output-table: # id of output
+    description: 'pytest-cov markdown output table'
+  cov-threshold-single-fail:
+    description: 'boolean if any single file coverage less than cov-threshold-single'
+  cov-threshold-total-fail:
+    description: 'boolean if total coverage less than cov-threshold-total'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pytest-root-dir }}
+    - ${{ inputs.pytest-tests-dir }}
+    - ${{ inputs.cov-omit-list }}
+    - ${{ inputs.requirements-file }}
+    - ${{ inputs.cov-threshold-single }}
+    - ${{ inputs.cov-threshold-total }}
