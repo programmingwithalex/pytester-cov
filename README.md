@@ -1,6 +1,6 @@
 # pytester-cover
 
-Copyright (c) 2021, programmingwithalex
+Copyright (c) 2021, https://github.com/programmingwithalex
 
 Enforce minimum pytest coverage by individual files, total, or both. Option to exclude directories and files as well.
 
