@@ -1,4 +1,4 @@
-# pytester-cover
+# pytester-cov
 
 Copyright (c) 2021, [programmingwithalex](https://github.com/programmingwithalex)
 
@@ -64,12 +64,12 @@ Enforce minimum pytest coverage by individual files, total, or both. Option to e
 #
 # Workflows used:
 #   * actions/checkout@v2: checkout files to perform additional actions on
-#   * programmingwithalex/pytester-cover@v1.2.3: runs `pytest --cov` and associated functions
+#   * programmingwithalex/pytester-cov@v1.2.4: runs `pytest --cov` and associated functions
 #   * nashmaniac/create-issue-action@v1.1: creates issue for repo
 #   * peter-evans/commit-comment@v1: adds message to commit
 # **************************************************************************************************************** #
 
-name: pytester-cover workflow
+name: pytester-cov workflow
 
 on: [push, pull_request]
 
@@ -93,9 +93,9 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: pytester-cover
-      id: pytester-cover
-      uses: programmingwithalex/pytester-cover@v1.2.3
+    - name: pytester-cov
+      id: pytester-cov
+      uses: programmingwithalex/pytester-cov@v1.2.4
       with:
         pytest-root-dir: '.'
         cov-omit-list: 'test/*, temp/main3.py, temp/main4.py'
@@ -103,43 +103,43 @@ jobs:
         cov-threshold-total: ${{ env.COVERAGE_TOTAL }}
 
     - name: Coverage single fail - new issue
-      if: ${{ steps.pytester-cover.outputs.cov-threshold-single-fail == 'true' }}
+      if: ${{ steps.pytester-cov.outputs.cov-threshold-single-fail == 'true' }}
       uses: nashmaniac/create-issue-action@v1.1
       with:
         title: Pytest coverage single falls below minimum ${{ env.COVERAGE_SINGLE }}
         token: ${{secrets.GITHUB_TOKEN}}
         assignees: ${{github.actor}}
         labels: workflow-failed
-        body: ${{ steps.pytester-cover.outputs.output-table }}
+        body: ${{ steps.pytester-cov.outputs.output-table }}
 
     - name: Coverage single fail - exit
-      if: ${{ steps.pytester-cover.outputs.cov-threshold-single-fail == 'true' }}
+      if: ${{ steps.pytester-cov.outputs.cov-threshold-single-fail == 'true' }}
       run: |
-        echo "cov single fail ${{ steps.pytester-cover.outputs.cov-threshold-single-fail }}"
+        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-single-fail }}"
         exit 1
 
     - name: Coverage total fail - new issue
-      if: ${{ steps.pytester-cover.outputs.cov-threshold-total-fail == 'true' }}
+      if: ${{ steps.pytester-cov.outputs.cov-threshold-total-fail == 'true' }}
       uses: nashmaniac/create-issue-action@v1.1
       with:
         title: Pytest coverage total falls below minimum ${{ env.COVERAGE_TOTAL }}
         token: ${{secrets.GITHUB_TOKEN}}
         assignees: ${{github.actor}}
         labels: workflow-failed
-        body: ${{ steps.pytester-cover.outputs.output-table }}
+        body: ${{ steps.pytester-cov.outputs.output-table }}
 
     - name: Coverage total fail - exit
-      if: ${{ steps.pytester-cover.outputs.cov-threshold-total-fail == 'true' }}
+      if: ${{ steps.pytester-cov.outputs.cov-threshold-total-fail == 'true' }}
       run: |
-        echo "cov single fail ${{ steps.pytester-cover.outputs.cov-threshold-total-fail }}"
+        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-total-fail }}"
         exit 1
 
     - name: Commit pytest coverage table
       uses: peter-evans/commit-comment@v1
       with:
-        body: ${{ steps.pytester-cover.outputs.output-table }}
+        body: ${{ steps.pytester-cov.outputs.output-table }}
 ```
 
 ## License
 
-[BSD 3-Clause License](https://github.com/programmingwithalex/pytester-cover/blob/main/LICENSE)
+[BSD 3-Clause License](https://github.com/programmingwithalex/pytester-cov/blob/main/LICENSE)
