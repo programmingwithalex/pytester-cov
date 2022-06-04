@@ -63,10 +63,10 @@ Enforce minimum pytest coverage by individual files, total, or both. Option to e
 #   * cov-threshold-total-fail: `false` if total coverage less than `cov-threshold-total`, else `true`
 #
 # Workflows used:
-#   * actions/checkout@v2: checkout files to perform additional actions on
-#   * programmingwithalex/pytester-cov@v1.2.4: runs `pytest --cov` and associated functions
+#   * actions/checkout@main: checkout files to perform additional actions on
+#   * programmingwithalex/pytester-cov@main: runs `pytest --cov` and associated functions
 #   * nashmaniac/create-issue-action@v1.1: creates issue for repo
-#   * peter-evans/commit-comment@v1: adds message to commit
+#   * peter-evans/commit-comment@main: adds message to commit
 # **************************************************************************************************************** #
 
 name: pytester-cov workflow
@@ -82,9 +82,9 @@ jobs:
       COVERAGE_TOTAL: 60
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@main
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@main
       with:
         python-version: 3.9
     - name: Install dependencies
@@ -95,7 +95,7 @@ jobs:
 
     - name: pytester-cov
       id: pytester-cov
-      uses: programmingwithalex/pytester-cov@v1.2.4
+      uses: programmingwithalex/pytester-cov@main
       with:
         pytest-root-dir: '.'
         cov-omit-list: 'test/*, temp/main3.py, temp/main4.py'
@@ -135,7 +135,7 @@ jobs:
         exit 1
 
     - name: Commit pytest coverage table
-      uses: peter-evans/commit-comment@v1
+      uses: peter-evans/commit-comment@main
       with:
         body: ${{ steps.pytester-cov.outputs.output-table }}
 ```
