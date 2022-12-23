@@ -59,8 +59,8 @@ Enforce minimum pytest coverage by individual files, total, or both. Option to e
 #
 # Action outputs:
 #   * output-table: `pytest --cov` markdown output table
-#   * cov-threshold-single-fail: `false` if any single file coverage less than `cov-threshold-single`, else `true`
-#   * cov-threshold-total-fail: `false` if total coverage less than `cov-threshold-total`, else `true`
+#   * cov-threshold-single-fail: `true` if any single file coverage less than `cov-threshold-single`, else `false`
+#   * cov-threshold-total-fail: `true` if total coverage less than `cov-threshold-total`, else `false`
 #
 # Workflows used:
 #   * actions/checkout@main: checkout files to perform additional actions on
