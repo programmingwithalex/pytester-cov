@@ -18,9 +18,9 @@
   <p align="center">
     Enforce minimum pytest coverage by individual files, total, or both
     <br />
-    <a href="https://github.com/programmingwithalex/aws_ecs_service_connect/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/programmingwithalex/pytester-cov/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/programmingwithalex/aws_ecs_service_connect/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/programmingwithalex/pytester-cov/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
