@@ -1,8 +1,28 @@
-# pytester-cov
+<a id="readme-top"></a>
 
-Copyright (c) 2021, [programmingwithalex](https://github.com/programmingwithalex)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![BSD-3-Clause License][license-shield]][license-url]
 
-Enforce minimum pytest coverage by individual files, total, or both. Option to exclude directories and files as well.
+---
+
+<br />
+<div align="center">
+    <p>Copyright (c) 2022, <a href="https://github.com/programmingwithalex">GitHub@programmingwithalex</a></p>
+
+
+  <h3 align="center">pytester-cov</h3>
+
+  <p align="center">
+    Enforce minimum pytest coverage by individual files, total, or both
+    <br />
+    <a href="https://github.com/programmingwithalex/aws_ecs_service_connect/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/programmingwithalex/aws_ecs_service_connect/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
 
 ## Python Packages Used
 
@@ -143,3 +163,14 @@ jobs:
 ## License
 
 [BSD 3-Clause License](https://github.com/programmingwithalex/pytester-cov/blob/main/LICENSE)
+
+[contributors-shield]: https://img.shields.io/github/contributors/programmingwithalex/pytester-cov?style=for-the-badge
+[contributors-url]: https://github.com/programmingwithalex/pytester-cov/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/programmingwithalex/pytester-cov?style=for-the-badge
+[forks-url]: https://github.com/programmingwithalex/pytester-cov/network/members
+[stars-shield]: https://img.shields.io/github/stars/programmingwithalex/pytester-cov?style=for-the-badge
+[stars-url]: https://github.com/programmingwithalex/pytester-cov/stargazers
+[issues-shield]: https://img.shields.io/github/issues/programmingwithalex/pytester-cov?style=for-the-badge
+[issues-url]: https://github.com/programmingwithalex/pytester-cov/issues
+[license-shield]: https://img.shields.io/github/license/programmingwithalex/pytester-cov.svg?style=for-the-badge
+[license-url]: https://github.com/programmingwithalex/pytester-cov/blob/main/LICENSE
